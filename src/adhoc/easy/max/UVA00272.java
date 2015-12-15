@@ -1,4 +1,4 @@
-package adhoc.easy.more;
+package adhoc.easy.max;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
