@@ -34,8 +34,8 @@ public class Main {
             int juice = 0;
             for (String s : vet) {
                 int tmp = Integer.parseInt(s);
-                mile += (1 + (tmp - 1) / 29) * 10;
-                juice += (1 + (tmp - 1) / 59) * 15;
+                mile += (1 + (tmp - 1) / 30) * 10;
+                juice += (1 + (tmp - 1) / 60) * 15;
             }
 
             saida.write("Case " + (i + 1) + ": ");
