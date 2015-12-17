@@ -21,41 +21,32 @@ public class Main {
                 System.out));
 //        BufferedWriter saida = new BufferedWriter(new OutputStreamWriter(
 //                new FileOutputStream("C:\\Users\\felipe.santos\\Documents\\saidas.txt")));
+
         String linha = entrada.readLine();
-        String vet[] = linha.split(" ");
-        int numeroBancos = Integer.parseInt(vet[0]);
-        int numeroDebentures = Integer.parseInt(vet[1]);
-        while (numeroBancos != 0 && numeroDebentures != 0) {
+        int qtdTeste = Integer.parseInt(linha);
+        //12157
+        for (int i = 0; i < qtdTeste; i++) {
             linha = entrada.readLine();
-            vet = linha.split(" ");
-            int saldos[] = new int[numeroBancos];
-            for (int i = 0; i < numeroBancos; i++) {
-                int tmp = Integer.parseInt(vet[i]);
-                saldos[i] = tmp;
+            int qtdLigacao = Integer.parseInt(linha);
+            linha = entrada.readLine();
+            String vet[] = linha.split(" ");
+            int mile = 0;
+            int juice = 0;
+            for (String s : vet) {
+                int tmp = Integer.parseInt(s);
+                mile += (1 + (tmp - 1) / 29) * 10;
+                juice += (1 + (tmp - 1) / 59) * 15;
             }
-            for (int i = 0; i < numeroDebentures; i++) {
-                linha = entrada.readLine();
-                vet = linha.split(" ");
-                int cre = Integer.parseInt(vet[0]) - 1;
-                int deb = Integer.parseInt(vet[1]) - 1;
-                int valor = Integer.parseInt(vet[2]);
-                saldos[deb] += valor;
-                saldos[cre] -= valor;
-            }
-            boolean estouro = false;
-            for (int i = 0; i < numeroBancos && !estouro; i++) {
-                if (saldos[i] < 0) estouro = true;
-            }
-            if (estouro) {
-                saida.write("N");
+
+            saida.write("Case " + (i + 1) + ": ");
+            if (mile > juice) {
+                saida.write("Juice " + juice);
+            } else if (juice > mile) {
+                saida.write("Mile " + mile);
             } else {
-                saida.write("S");
+                saida.write("Mile Juice " + mile);
             }
             saida.newLine();
-            linha = entrada.readLine();
-            vet = linha.split(" ");
-            numeroBancos = Integer.parseInt(vet[0]);
-            numeroDebentures = Integer.parseInt(vet[1]);
         }
         saida.flush();
     }
