@@ -1,0 +1,86 @@
+1.1.1 -
+	10341 - Maths
+	11292 - grafos
+	11450 - greedy
+	11450 - dois ccomponentes
+	11635 - network flow
+	11506 - Graph
+	10243 - Directed Acyclic Graph
+	10717 - composicao
+	11512 - suffix trie
+	10065 - convex hull
+
+1.1.2 - 
+	1. A
+	2. A
+	3. A
+	4. A
+	5. C
+	6. B
+	7. A
+	8. B - Don't know
+	9. A
+
+1.2.3 - 
+	1. ok
+	2. ok
+	3. ok
+	4. ok
+	5. ordenar, estou assumindo que sei fazer
+	6. busca binaria, estou assumindo que sei fazer
+	7. ok, com alguma dificuldade
+	8. não consegui fazer as permutacoes
+	9. ok, mas usei as conversões prontas do java
+	10. ok
+	11. não tentei, mas possível que teria muita dificuldades para fazer
+
+1.2.4 - 
+	1. C
+	2. C
+	3. B
+	4. Go to another question, because you have to do anoother kind of implementation, or do another kind of algorithm to resolve the problem. Unless you know the other kind of algorithm to resolve.
+	5. should check for tricky test case where the code break, like positions of arrays out of bound.
+	6. try to resolve that problem too.
+	7. continue to work on the problem you are working, and wait, if another team do it, then you go try to solve that exercise
+	8.do another problem
+	9.C
+
+Ad Hoc
+	Super Easy
+		272 - ok
+		1124 - ok
+		10550 - não deu certo ainda
+		11044 - ok
+		11172 - ok
+		11364 - ok
+		11498 - ok
+		11547 - ok
+		11727 - ok
+		12250 - ok
+		12279 - rte, não tenho ideia aonde esta dando
+		12289 - ok
+		12372 - ok
+		12403 - ok
+		12577 - ok
+	Easy
+		621 - ok
+		10114 - ok
+		10300 - ok
+		10963 - rte, mas bateu as respostas
+		11332 - ok
+		11559 - ok
+		11679 - ok
+		11764 - ok
+		11799 - ok
+		11942 - ok
+		12015 - ok
+		12157 - ok
+		12468 - ok
+		12503 - ok
+		12554 - ok
+	Medium
+		119 - ok
+
+		
+
+	
