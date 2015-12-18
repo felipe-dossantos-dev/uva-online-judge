@@ -80,7 +80,12 @@ Ad Hoc
 		12554 - ok
 	Medium
 		119 - ok
+		573 - ok
+		661 - ok
+		10141 - ok
 
+
+	Obs: Na hora que chegar nos time wasters, fazer um por dia, e depois ir focar em outro assunto.
 		
 
 	
