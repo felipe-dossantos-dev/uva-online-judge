@@ -83,6 +83,13 @@ Ad Hoc
 		573 - ok
 		661 - ok
 		10141 - ok
+		10324 - ok
+		10424 - ok
+		10919 - ok
+		11507 - não consegui achar uma lógica
+		11586 - ok
+		11661 - ok
+		11683 - ok
 
 
 	Obs: Na hora que chegar nos time wasters, fazer um por dia, e depois ir focar em outro assunto.
