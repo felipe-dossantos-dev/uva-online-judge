@@ -92,6 +92,10 @@ Ad Hoc
 		11683 - ok
 		11687 - não consegui entender
 		11956 - ok
+	--Games--
+	Cards
+		
+
 
 
 	Obs: Na hora que chegar nos time wasters, fazer um por dia, e depois ir focar em outro assunto.
