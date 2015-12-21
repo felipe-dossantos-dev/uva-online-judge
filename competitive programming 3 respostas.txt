@@ -90,6 +90,8 @@ Ad Hoc
 		11586 - ok
 		11661 - ok
 		11683 - ok
+		11687 - não consegui entender
+		
 
 
 	Obs: Na hora que chegar nos time wasters, fazer um por dia, e depois ir focar em outro assunto.
