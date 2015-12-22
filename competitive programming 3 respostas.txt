@@ -94,11 +94,16 @@ Ad Hoc
 		11956 - ok
 	--Games--
 	Cards
-		
+		00162 - 
 
 
 
 	Obs: Na hora que chegar nos time wasters, fazer um por dia, e depois ir focar em outro assunto.
 		
-
+Estatísticas
+	Ad Hoc Super Easy - 13 / 15 , 1 RTE, 1 Não feito
+	Ad Hoc Easy - 14 / 15 , 1 RTE
+	Ad Hoc Médio - 11 / 13 , 2 Não Feito
+	Ad Hoc Cartas - X / 09
+	Geral - 88,37%
 	
