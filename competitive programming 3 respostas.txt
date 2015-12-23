@@ -47,8 +47,8 @@
 
 Ad Hoc
 	Super Easy
-		272 - ok
-		1124 - ok
+		00272 - ok
+		01124 - ok
 		10550 - não deu certo ainda
 		11044 - ok
 		11172 - ok
@@ -63,7 +63,7 @@ Ad Hoc
 		12403 - ok
 		12577 - ok
 	Easy
-		621 - ok
+		00621 - ok
 		10114 - ok
 		10300 - ok
 		10963 - rte, mas bateu as respostas
@@ -79,9 +79,9 @@ Ad Hoc
 		12503 - ok
 		12554 - ok
 	Medium
-		119 - ok
-		573 - ok
-		661 - ok
+		00119 - ok
+		00573 - ok
+		00661 - ok
 		10141 - ok
 		10324 - ok
 		10424 - ok
@@ -94,7 +94,11 @@ Ad Hoc
 		11956 - ok
 	--Games--
 	Cards
-		00162 - 
+		00162 - ok
+		00462 - ok
+		00555 - ok
+		10205 - ok
+		10315 - 
 
 
 
