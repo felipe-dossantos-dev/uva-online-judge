@@ -99,7 +99,9 @@ Ad Hoc
 		00555 - ok
 		10205 - ok
 		10315 - deixa por ultimo
-		10646 - 
+		10646 - ok
+		11225 - ok
+		11678 - 
 
 
 
