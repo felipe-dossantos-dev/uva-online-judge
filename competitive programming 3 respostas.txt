@@ -98,7 +98,8 @@ Ad Hoc
 		00462 - ok
 		00555 - ok
 		10205 - ok
-		10315 - 
+		10315 - deixa por ultimo
+		10646 - 
 
 
 
