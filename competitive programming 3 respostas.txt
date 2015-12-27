@@ -101,7 +101,8 @@ Ad Hoc
 		10315 - deixa por ultimo
 		10646 - ok
 		11225 - ok
-		11678 - 
+		11678 - ok
+		12247 -  
 
 
 
