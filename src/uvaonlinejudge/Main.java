@@ -14,55 +14,133 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         Locale.setDefault(Locale.US);
-        BufferedReader entrada = new BufferedReader(new InputStreamReader(
-                System.in));
 //        BufferedReader entrada = new BufferedReader(new InputStreamReader(
-//                new FileInputStream("/home/felipe/entradas.txt")));
+//                System.in));
+        BufferedReader entrada = new BufferedReader(new InputStreamReader(
+                new FileInputStream("C:\\Users\\felipe.santos\\Documents\\entradas.txt")));
 //        Scanner entrada = new Scanner(new FileInputStream("C:\\Users\\felipe.santos\\Documents\\entradas.txt"));
 //        Scanner entrada = new Scanner(System.in);
-        BufferedWriter saida = new BufferedWriter(new OutputStreamWriter(
-                System.out));
 //        BufferedWriter saida = new BufferedWriter(new OutputStreamWriter(
-//                new FileOutputStream("/home/felipe/saidas.txt")));
+//                System.out));
+        BufferedWriter saida = new BufferedWriter(new OutputStreamWriter(
+                new FileOutputStream("C:\\Users\\felipe.santos\\Documents\\saidas.txt")));
         String linha = entrada.readLine();
-        String vet[] = linha.split(" ");
-        int a = Integer.parseInt(vet[0]);
-        int b = Integer.parseInt(vet[1]);
-        int cartasA[] = new int[100005];
-        int cartasB[] = new int[100005];
-        while (a != 0 && b != 0) {
-            int trocasA = 0;
-            int trocasB = 0;
-            linha = entrada.readLine();
-            vet = linha.split(" ");
-            for (String str : vet) {
-                int pos = Integer.parseInt(str);
-                cartasA[pos]++;
-            }
-            linha = entrada.readLine();
-            vet = linha.split(" ");
-            for (String str : vet) {
-                int pos = Integer.parseInt(str);
-                cartasB[pos]++;
-            }
-            for (int i = 0; i < cartasA.length; i++) {
-                if (cartasA[i] != 0 && cartasB[i] == 0) {
-                    trocasA++;
+        while (linha != null) {
+            String vet[] = linha.split(" ");
+            int king = Integer.parseInt(vet[0]);
+            int queen = Integer.parseInt(vet[1]);
+            int move = Integer.parseInt(vet[2]);
+            if (isStateLegal(king, queen)) {
+                if (isMovelLegal(king, queen, move)) {
+                    if (isAllowed(king, move)) {
+                        if (isStop(king, move)) {
+                            saida.write("Stop");
+                        } else {
+                            saida.write("Continue");
+                        }
+                    } else {
+                        saida.write("Move not allowed");
+                    }
+                } else {
+                    saida.write("Illegal move");
                 }
-                if ((cartasA[i] == 0 && cartasB[i] != 0)) {
-                    trocasB++;
-                }
+            } else {
+                saida.write("Illegal state");
             }
-            trocasA = Math.min(trocasA, trocasB);
-            saida.write(trocasA + "\n");
-
             linha = entrada.readLine();
-            vet = linha.split(" ");
-            a = Integer.parseInt(vet[0]);
-            b = Integer.parseInt(vet[1]);
-            Arrays.fill(cartasA, 0);
-            Arrays.fill(cartasB, 0);
+            if (linha != null) {
+                saida.write("\n");
+            }
         }
         saida.flush();
+    }
+
+    public static boolean isStateLegal(int king, int queen) {
+        return king != queen;
+    }
+
+    private static boolean isMovelLegal(int king, int queen, int move) {
+        if (queen == move) {
+            return false;
+        }
+        //horizontal
+        int esq = queen - (queen % 8);
+        int dir = queen + 7 - queen % 8;
+        if (move >= esq && move <= dir) {
+            if (queen < move) {
+                esq = queen;
+                dir = move;
+            } else {
+                esq = move;
+                dir = queen;
+            }
+            for (int i = esq; i <= dir; i++) {
+                if (i == king) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        //vertical
+        if (queen % 8 == move % 8) {
+            if (queen < move) {
+                int aux = move;
+                move = queen;
+                queen = aux;
+            }
+            for (int i = move; i <= queen; i += 8) {
+                if (i == king) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        return false;
+    }
+
+    private static boolean isAllowed(int king, int move) {
+        boolean allowed = true;
+        if (king / 8 == (king - 1) / 8 && king - 1 == move) {
+            allowed = false;
+        }
+        if (king / 8 == (king + 1) / 8 && king + 1 == move) {
+            allowed = false;
+        }
+        //coluna
+        if (king + 8 < 64 && king + 8 == move) {
+            allowed = false;
+        }
+        if (king - 8 >= 0 && king - 8 == move) {
+            allowed = false;
+        }
+        return allowed;
+    }
+
+    private static boolean isStop(int king, int move) {
+        int[] moves = {move - 1, move + 1, move + 8, move - 8};
+        int[] kings = {king - 1, king + 1, king + 8, king - 8};
+        boolean movKing[] = new boolean[4];
+        for (int i = 0; i < kings.length; i++) {
+            int k = kings[i];
+            if (k >= 0 && k < 64) {
+                if (i < 2 && king / 8 == k / 8) {
+                    for (int m : moves) {
+                        if (m == k) {
+                            movKing[i] = true;
+                        }
+                    }
+                }
+                if (i >= 2) {
+                    for (int m : moves) {
+                        if (m == k) {
+                            movKing[i] = true;
+                        }
+                    }
+                }
+            } else {
+                movKing[i] = true;
+            }
+        }
+        return movKing[0] && movKing[1] && movKing[2] && movKing[3];
     }
 }
