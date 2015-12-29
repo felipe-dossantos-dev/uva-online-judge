@@ -2,28 +2,25 @@ package uvaonlinejudge;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.util.Arrays;
 import java.util.Locale;
 
 public class Main {
 
     public static void main(String[] args) throws IOException {
         Locale.setDefault(Locale.US);
-//        BufferedReader entrada = new BufferedReader(new InputStreamReader(
-//                System.in));
         BufferedReader entrada = new BufferedReader(new InputStreamReader(
-                new FileInputStream("C:\\Users\\felipe.santos\\Documents\\entradas.txt")));
+                System.in));
+//        BufferedReader entrada = new BufferedReader(new InputStreamReader(
+//                new FileInputStream("/home/felipe/entradas.txt")));
 //        Scanner entrada = new Scanner(new FileInputStream("C:\\Users\\felipe.santos\\Documents\\entradas.txt"));
 //        Scanner entrada = new Scanner(System.in);
-//        BufferedWriter saida = new BufferedWriter(new OutputStreamWriter(
-//                System.out));
         BufferedWriter saida = new BufferedWriter(new OutputStreamWriter(
-                new FileOutputStream("C:\\Users\\felipe.santos\\Documents\\saidas.txt")));
+                System.out));
+//        BufferedWriter saida = new BufferedWriter(new OutputStreamWriter(
+//                new FileOutputStream("/home/felipe/saidas.txt")));
         String linha = entrada.readLine();
         while (linha != null) {
             String vet[] = linha.split(" ");
@@ -48,9 +45,7 @@ public class Main {
                 saida.write("Illegal state");
             }
             linha = entrada.readLine();
-            if (linha != null) {
-                saida.write("\n");
-            }
+            saida.write("\n");
         }
         saida.flush();
     }
@@ -117,30 +112,9 @@ public class Main {
     }
 
     private static boolean isStop(int king, int move) {
-        int[] moves = {move - 1, move + 1, move + 8, move - 8};
-        int[] kings = {king - 1, king + 1, king + 8, king - 8};
-        boolean movKing[] = new boolean[4];
-        for (int i = 0; i < kings.length; i++) {
-            int k = kings[i];
-            if (k >= 0 && k < 64) {
-                if (i < 2 && king / 8 == k / 8) {
-                    for (int m : moves) {
-                        if (m == k) {
-                            movKing[i] = true;
-                        }
-                    }
-                }
-                if (i >= 2) {
-                    for (int m : moves) {
-                        if (m == k) {
-                            movKing[i] = true;
-                        }
-                    }
-                }
-            } else {
-                movKing[i] = true;
-            }
-        }
-        return movKing[0] && movKing[1] && movKing[2] && movKing[3];
+        return (king == 0 && move == 9)
+                || (king == 7 && move == 14)
+                || (king == 63 && move == 54)
+                || (king == 56 && move == 49);
     }
 }
