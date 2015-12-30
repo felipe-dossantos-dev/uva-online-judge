@@ -7,7 +7,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.util.HashSet;
 import java.util.Locale;
+import java.util.Set;
 
 public class Main {
 
@@ -16,41 +18,53 @@ public class Main {
 //        BufferedReader entrada = new BufferedReader(new InputStreamReader(
 //                System.in));
         BufferedReader entrada = new BufferedReader(new InputStreamReader(
-                new FileInputStream("/home/felipe/entradas.txt")));
+                new FileInputStream("C:\\Users\\felipe.santos\\Documents\\entradas.txt")));
 //        Scanner entrada = new Scanner(new FileInputStream("C:\\Users\\felipe.santos\\Documents\\entradas.txt"));
 //        Scanner entrada = new Scanner(System.in);
 //        BufferedWriter saida = new BufferedWriter(new OutputStreamWriter(
 //                System.out));
         BufferedWriter saida = new BufferedWriter(new OutputStreamWriter(
-                new FileOutputStream("/home/felipe/saidas.txt")));
-        String linha = entrada.readLine();
-        String vet[] = linha.split(" ");
-        int rows = Integer.parseInt(vet[0]);
-        int cols = Integer.parseInt(vet[1]);
-        while (rows != 0 || cols != 0) {
-            int qtd;
-            if (rows == 0 || cols == 0) {
-                qtd = 0;
-            } else if (rows == 1 || cols == 1) {
-                qtd = rows * cols;
-            } else if (rows == 2 || cols == 2) {
-                int max = Math.max(rows, cols);
-                int min = Math.min(rows, cols);
-                if (max <= 3) {
-                    qtd = 4;
-                } else {
-                    int tmp = max / 4;
-                    int rem = max % 4;
-                    qtd = tmp * 4 + Math.min(rem, 2) * 2;
-                }
-            } else {
-                qtd = (rows * cols + 1) / 2;
+                new FileOutputStream("C:\\Users\\felipe.santos\\Documents\\saidas.txt")));
+        int caso = Integer.parseInt(entrada.readLine());
+        while (caso != -1) {
+            int erros = 7;
+            String palavra = entrada.readLine();
+            boolean acertadas[] = new boolean[palavra.length()];
+            String adivinhada = entrada.readLine();
+            Set<Character> conj = new HashSet<>();
+            Set<Character> conjPal = new HashSet<>();
+            for (char c : palavra.toCharArray()) {
+                conjPal.add(c);
             }
-            saida.write(String.format("%d knights may be placed on a %d row %d column board.\n", qtd, rows, cols));
-            linha = entrada.readLine();
-            vet = linha.split(" ");
-            rows = Integer.parseInt(vet[0]);
-            cols = Integer.parseInt(vet[1]);
+            boolean venceu = true;
+            for (int i = 0; i < adivinhada.length(); i++) {
+                char a = adivinhada.charAt(i);
+                boolean errou = false;
+                for (int j = 0; j < palavra.length(); j++) {
+                    char p = palavra.charAt(j);
+                    if (a == p) {
+                        errou = true;
+                        acertadas[j] = true;
+                    }
+                }
+                if (!conj.contains(a) && errou) {
+                    erros--;
+                    if (erros == 0) {
+                        venceu = false;
+                        saida.write("You lose.\n");
+                    }
+                }
+                conj.add(a);
+            }
+            for (boolean acertada : acertadas) {
+                if(!acertada) venceu = false;
+            }
+            if (venceu) {
+                saida.write("You win.\n");
+            } else if (conj.size() < conjPal.size()) {
+                saida.write("You chickened out.\n");
+            }
+            caso = Integer.parseInt(entrada.readLine());
         }
         saida.flush();
     }
