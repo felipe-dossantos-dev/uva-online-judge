@@ -7,9 +7,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.util.HashSet;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
-import java.util.Set;
 
 public class Main {
 
@@ -27,42 +27,19 @@ public class Main {
                 new FileOutputStream("C:\\Users\\felipe.santos\\Documents\\saidas.txt")));
         int caso = Integer.parseInt(entrada.readLine());
         while (caso != -1) {
-            int erros = 7;
             String palavra = entrada.readLine();
-            boolean acertadas[] = new boolean[palavra.length()];
-            String adivinhada = entrada.readLine();
-            Set<Character> conj = new HashSet<>();
-            Set<Character> conjPal = new HashSet<>();
-            for (char c : palavra.toCharArray()) {
-                conjPal.add(c);
+            String palpite = entrada.readLine();
+            List<Character> lista = new ArrayList<>();
+            for (int i = 0; i < palavra.length(); i++) {
+                char p = palavra.charAt(i);
+                lista.add(p);
             }
-            boolean venceu = true;
-            for (int i = 0; i < adivinhada.length(); i++) {
-                char a = adivinhada.charAt(i);
-                boolean errou = false;
-                for (int j = 0; j < palavra.length(); j++) {
-                    char p = palavra.charAt(j);
-                    if (a == p) {
-                        errou = true;
-                        acertadas[j] = true;
-                    }
+            int flag = 0;
+            for (int i = 0; i < palpite.length(); i++) {
+                if (lista.isEmpty()) {
+                    int size = lista.size();
+                    lista.remove(palpite.charAt(i));
                 }
-                if (!conj.contains(a) && errou) {
-                    erros--;
-                    if (erros == 0) {
-                        venceu = false;
-                        saida.write("You lose.\n");
-                    }
-                }
-                conj.add(a);
-            }
-            for (boolean acertada : acertadas) {
-                if(!acertada) venceu = false;
-            }
-            if (venceu) {
-                saida.write("You win.\n");
-            } else if (conj.size() < conjPal.size()) {
-                saida.write("You chickened out.\n");
             }
             caso = Integer.parseInt(entrada.readLine());
         }
