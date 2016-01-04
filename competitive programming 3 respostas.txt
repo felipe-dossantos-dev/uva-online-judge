@@ -109,7 +109,13 @@ Ad Hoc
 		00696 - ok
 		10284 - passou em todos os casos do udebug e outros do forum mais deu rte, tenho nem ideia da onde
 	Others Easier
-		00489 - 
+		00489 - ok
+		10189 - ok
+		11459 - ok
+	Others Harder
+		00584 - ok
+		10443 - ok
+		10813 - 
 
 
 	Obs: Na hora que chegar nos time wasters, fazer um por dia, e depois ir focar em outro assunto.
