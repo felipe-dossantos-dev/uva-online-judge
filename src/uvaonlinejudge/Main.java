@@ -13,18 +13,18 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         Locale.setDefault(Locale.US);
-//        BufferedReader entrada = new BufferedReader(new InputStreamReader(
-//                System.in));
         BufferedReader entrada = new BufferedReader(new InputStreamReader(
-                new FileInputStream("C:\\Users\\felipe.santos\\Documents\\entradas.txt")));
+                System.in));
+//        BufferedReader entrada = new BufferedReader(new InputStreamReader(
+//                new FileInputStream("C:\\Users\\felipe.santos\\Documents\\entradas.txt")));
 //        Scanner entrada = new Scanner(new FileInputStream("C:\\Users\\felipe.santos\\Documents\\entradas.txt"));
 //        Scanner entrada = new Scanner(new FileInputStream(args[0]));
 //        Scanner entrada = new Scanner(System.in);
-//        BufferedWriter saida = new BufferedWriter(new OutputStreamWriter(
-//                System.out));
         BufferedWriter saida = new BufferedWriter(new OutputStreamWriter(
-                new FileOutputStream("C:\\Users\\felipe.santos\\Documents\\saidas.txt")));
-        String linha = entrada.readLine().trim();
+                System.out));
+//        BufferedWriter saida = new BufferedWriter(new OutputStreamWriter(
+//                new FileOutputStream("C:\\Users\\felipe.santos\\Documents\\saidas.txt")));
+        String linha = entrada.readLine();
         
         saida.flush();
     }
