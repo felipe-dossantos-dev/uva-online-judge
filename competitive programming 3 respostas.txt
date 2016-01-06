@@ -123,7 +123,7 @@ Ad Hoc
 	Anagram
 		00156 - ok
 		00195 - LTE, como faço em java aqui fica dificultado.Em c++ só usar next_permutation
-		00454 - 
+		00454 - ok
 
 
 
