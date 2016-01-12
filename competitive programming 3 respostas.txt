@@ -129,8 +129,8 @@ Ad Hoc
 		00637 - ok
 		10812 - ok
 	Real Life Problems Harder
-		
-
-
+		00403 - não consegui, cansei de fazer ele
+		00608 - ok
+		01061 - 
 
 	Obs: Fazer somente os com * (essenciais) de ad hoc e depois partir para o resto, vai ser mais efetivo cobrir todo o conteúdo
