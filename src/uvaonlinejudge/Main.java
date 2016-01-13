@@ -7,7 +7,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.util.HashSet;
 import java.util.Locale;
+import java.util.Set;
 
 public class Main {
 
@@ -21,17 +23,7 @@ public class Main {
 //        BufferedWriter saida = new BufferedWriter(new OutputStreamWriter(System.out));
         BufferedWriter saida = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("C:\\Users\\felipe.santos\\Documents\\saidas.txt")));
         String linha = entrada.readLine();
-        int caso = 1;
-        while (!linha.equals("E N D")) {
-            String vet[] = linha.split("\\s+");
-            
-            
-            saida.write("Case " + caso +": ");
-            
-            
-            
-            caso++;
-        }
+        
         saida.flush();
     }
 }
