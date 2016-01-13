@@ -132,5 +132,11 @@ Ad Hoc
 		00403 - não consegui, cansei de fazer ele
 		00608 - ok
 		01061 - não consegui
+	Time
+		00579 - ok
+		00893 - 
+		11947 - 
+	Time Waster
+		Não vou entrar nessas categoria agora. Vou fazer mais conteúdo primeiro.
 
 	Obs: Fazer somente os com * (essenciais) de ad hoc e depois partir para o resto, vai ser mais efetivo cobrir todo o conteúdo
