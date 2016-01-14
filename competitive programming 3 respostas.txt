@@ -134,8 +134,8 @@ Ad Hoc
 		01061 - não consegui
 	Time
 		00579 - ok
-		00893 - 
-		11947 - 
+		00893 - ok
+		11947 - ok
 	Time Waster
 		Não vou entrar nessas categoria agora. Vou fazer mais conteúdo primeiro.
 
