@@ -1,3 +1,5 @@
+Seção 1: 
+
 1.1.1 -
 	10341 - Maths
 	11292 - grafos
@@ -139,4 +141,35 @@ Ad Hoc
 	Time Waster
 		Não vou entrar nessas categoria agora. Vou fazer mais conteúdo primeiro.
 
-	Obs: Fazer somente os com * (essenciais) de ad hoc e depois partir para o resto, vai ser mais efetivo cobrir todo o conteúdo
+Seção 2:
+
+2.2.1 - 
+	unsorted array integer, size : 1 <= n <= 100k (10^6)
+	1. 
+		- primeiramente faria o ordenação no array (n log n = 6 x 10^6)
+		- faria a busca linear para encontrar os pares O (n) = 10^6
+		- total O(n) = 7 x 10^6
+	2.
+		- não sei
+	3.
+		- não sei
+	4.
+		- primeiramente faria o ordenação no array O(n log n = 6 x 10^6)
+		- busca binária para achar o primeiro elemento O(log n = 6)
+		- print da sequencia O(n)
+	5.
+		- faria uma busca linear, guardando o tamanho atual da subsequencia ordenada, e o tamanho da maior subsequencia, adicionaria um ao valor atual da subsequencia comparando o valor atual com o anterior dentro do array O(n)
+
+	6.
+		- primeiramente faria o ordenação no array O(n log n = 6 x 10^6)
+		- divide o indice maximo por dois e acha o elemento O(1)
+
+2.2.2 - 
+	bit mask
+	1. modulo feito em bitmask ==>  a = a & ~(-div);
+	2. se é potencia de 2 ==> a = a & ~(-a); e depois compara com 0
+	3. desligar bit menos significativo ==> a = a & ~(a & (-a));
+	4. 
+
+	Obs: Fazer somente os com * (essenciais), vai ser mais efetivo cobrir todo o conteúdo
+
