@@ -169,7 +169,16 @@ Seção 2:
 	1. modulo feito em bitmask ==>  a = a & ~(-div);
 	2. se é potencia de 2 ==> a = a & ~(-a); e depois compara com 0
 	3. desligar bit menos significativo ==> a = a & ~(a & (-a));
-	4. 
+	4. ligar o último 0 ==> 
+	5. Turn off the last consecutive run of ones in S ==>
+	6. Turn on the last consecutive run of zeroes in S ==>
+	7. UVA 11173 - 
+
+DS
+	1D Array Manipulation
+		10038 - ok
+		11340 - ok
+		
 
 	Obs: Fazer somente os com * (essenciais), vai ser mais efetivo cobrir todo o conteúdo
 
