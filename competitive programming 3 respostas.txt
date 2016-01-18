@@ -178,7 +178,13 @@ DS
 	1D Array Manipulation
 		10038 - ok
 		11340 - ok
-		12356 - 
+		12356 - ok
+	2D Array Manipulation
+		10855 - ok
+		10920 - ok
+		11581 - não consegui entender o problema
+	Java Collection
+		00146 - 
 
 	Obs: Fazer somente os com * (essenciais), vai ser mais efetivo cobrir todo o conteúdo
 
