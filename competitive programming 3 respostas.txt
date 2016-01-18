@@ -172,13 +172,13 @@ Seção 2:
 	4. ligar o último 0 ==> 
 	5. Turn off the last consecutive run of ones in S ==>
 	6. Turn on the last consecutive run of zeroes in S ==>
-	7. UVA 11173 - 
+	7. UVA 11173 - ok
 
 DS
 	1D Array Manipulation
 		10038 - ok
 		11340 - ok
-		
+		12356 - 
 
 	Obs: Fazer somente os com * (essenciais), vai ser mais efetivo cobrir todo o conteúdo
 
