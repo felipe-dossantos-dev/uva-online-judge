@@ -7,6 +7,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Locale;
 
 public class Main {
@@ -20,8 +23,15 @@ public class Main {
 //        Scanner entrada = new Scanner(System.in);
 //        BufferedWriter saida = new BufferedWriter(new OutputStreamWriter(System.out));
         BufferedWriter saida = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("C:\\Users\\felipe.santos\\Documents\\saidas.txt")));
+        int qtdTestes = Integer.parseInt(entrada.readLine());
         String linha = entrada.readLine();
-        int qtdTestes = Integer.parseInt(linha);
+        linha = entrada.readLine();
+        for (int i = 0; i < qtdTestes; i++) {
+            while (!linha.isEmpty()) {
+                linha = entrada.readLine();
+            }
+            linha = entrada.readLine();
+        }
         saida.flush();
     }
 }
