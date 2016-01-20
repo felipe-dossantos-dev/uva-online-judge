@@ -7,9 +7,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.Arrays;
 import java.util.Locale;
 
 public class Main {
@@ -17,20 +15,20 @@ public class Main {
     public static void main(String[] args) throws IOException {
         Locale.setDefault(Locale.US);
 //        BufferedReader entrada = new BufferedReader(new InputStreamReader(System.in));
-        BufferedReader entrada = new BufferedReader(new InputStreamReader(new FileInputStream("C:\\Users\\felipe.santos\\Documents\\entradas.txt")));
+        BufferedReader entrada = new BufferedReader(new InputStreamReader(new FileInputStream("/home/felipe/entradas.txt")));
 //        Scanner entrada = new Scanner(new FileInputStream("/home/felipe/entradas.txt"));
 //        Scanner entrada = new Scanner(new FileInputStream(args[0]));
 //        Scanner entrada = new Scanner(System.in);
 //        BufferedWriter saida = new BufferedWriter(new OutputStreamWriter(System.out));
-        BufferedWriter saida = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("C:\\Users\\felipe.santos\\Documents\\saidas.txt")));
-        int qtdTestes = Integer.parseInt(entrada.readLine());
+        BufferedWriter saida = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("/home/felipe/saidas.txt")));
         String linha = entrada.readLine();
-        linha = entrada.readLine();
-        for (int i = 0; i < qtdTestes; i++) {
-            while (!linha.isEmpty()) {
-                linha = entrada.readLine();
-            }
+        int testes = Integer.parseInt(linha);
+        for (int i = 0; i < testes; i++) {
             linha = entrada.readLine();
+            String vet[] = linha.split("\\s+");
+            int n = Integer.parseInt(vet[0]);
+            int m = Integer.parseInt(vet[1]);
+            
         }
         saida.flush();
     }
