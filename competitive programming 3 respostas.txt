@@ -190,7 +190,7 @@ DS
 	Bit Manipulation - farei todos pq nunca vi essa matéria e pode ser realmente útil depois
 		00594 - One Little, Two Little ... (manipulate bit string with bitset)
 		00700 - Date Bugs (can be solved with bitset)
-		01241 - Jollybee Tournament (LA 4147, Jakarta08, easy)
+		01241 - ok
 		10264 - The Most Potent Corner * (heavy bitmask manipulation)
 		11173 - Grey Codes (D & C pattern or one liner bit manipulation)
 		11760 - Brother Arif, ... (separate row+col checks; use two bitsets)
