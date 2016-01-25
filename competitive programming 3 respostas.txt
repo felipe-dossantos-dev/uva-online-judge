@@ -193,8 +193,8 @@ DS
 		01241 - ok
 		10264 - The Most Potent Corner * (heavy bitmask manipulation)
 		11173 - ok
-		11760 - Brother Arif, ... (separate row+col checks; use two bitsets)
-		11926 - Multitasking * (use 1M bitset to check if a slot is free)
+		11760 - ok
+		11926 - ok
 		11933 - Splitting Numbers * (an exercise for bit manipulation)
 
 	Obs: Fazer somente os com * (essenciais), vai ser mais efetivo cobrir todo o conteúdo

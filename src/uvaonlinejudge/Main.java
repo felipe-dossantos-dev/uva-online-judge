@@ -14,22 +14,13 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         Locale.setDefault(Locale.US);
-                BufferedReader entrada = new BufferedReader(new InputStreamReader(System.in));
-//        BufferedReader entrada = new BufferedReader(new InputStreamReader(new FileInputStream("/home/felipe/entradas.txt")));
+//        BufferedReader entrada = new BufferedReader(new InputStreamReader(System.in));
+        BufferedReader entrada = new BufferedReader(new InputStreamReader(new FileInputStream("/home/felipe/entradas.txt")));
 //        Scanner entrada = new Scanner(new FileInputStream("/home/felipe/entradas.txt"));
-        //        Scanner entrada = new Scanner(new FileInputStream(args[0]));
-//            Scanner entrada = new Scanner(System.in);
-            BufferedWriter saida = new BufferedWriter(new OutputStreamWriter(System.out));
-//        BufferedWriter saida = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("/home/felipe/saidas.txt")));
-
-        String linha = entrada.readLine();
-        while (linha != null) {
-            int a = Integer.parseInt(linha);
-            int b = Integer.reverseBytes(a);
-            saida.write(a + " converts to " + b + "\n");
-            linha = entrada.readLine();
-        }
-
+//        Scanner entrada = new Scanner(System.in);
+//        BufferedWriter saida = new BufferedWriter(new OutputStreamWriter(System.out));
+        BufferedWriter saida = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("/home/felipe/saidas.txt")));
+        BitSet bs = new BitSet();
         saida.flush();
     }
 }
