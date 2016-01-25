@@ -184,18 +184,24 @@ DS
 		10920 - ok
 		11581 - não consegui entender o problema
 	Java Collection
-		00146 - Fiz em cpp
+		00146 - Fiz em c++
 		10107 - ok
 		10258 - ok
-	Bit Manipulation - farei todos pq nunca vi essa matéria e pode ser realmente útil depois
+	Bit Manipulation -
 		00594 - ok, mas foi feito com uma funcao pronta do java
 		00700 - ok
 		01241 - ok
-		10264 - The Most Potent Corner * (heavy bitmask manipulation)
+		10264 - não consegui entender e fazer
 		11173 - ok
 		11760 - ok
 		11926 - ok
-		11933 - Splitting Numbers * (an exercise for bit manipulation)
+		11933 - ok
+	Linked List - 
+		11988 - ok
+	Stack - 
+		00514 - ok
+		00732 - 
+		01062 - 
 
 	Obs: Fazer somente os com * (essenciais), vai ser mais efetivo cobrir todo o conteúdo
 
