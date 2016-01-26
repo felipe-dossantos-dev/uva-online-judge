@@ -32,11 +32,10 @@ public class Main {
         }
         while (source != null && target != null) {
             saida.write("[\n");
-            Stack<Character> pilha = new Stack<>();
             Map<Character, Integer> mapa1 = countLetras(source);
             Map<Character, Integer> mapa2 = countLetras(target);
             if (mapa1.equals(mapa2)){
-                saida.write("iguais");
+                backtrack(saida, source, target, new Stack<>(), "", "");
             } 
             saida.write("]\n");
             source = entrada.readLine();
@@ -61,6 +60,14 @@ public class Main {
             }
         }
         return mapa1;
+    }
+    
+    public static void backtrack(BufferedWriter saida, String source, 
+            String target, Stack<Character> pilha, 
+            String atual, String io) throws IOException{
+        if (atual.equals(target))
+            saida.write(io + "\n");
+        
     }
 
 }

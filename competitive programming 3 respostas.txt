@@ -200,8 +200,8 @@ DS
 		11988 - ok
 	Stack - 
 		00514 - ok
-		00732 - 
-		01062 - 
+		00732 -
+ 		01062 - 
 
 	Obs: Fazer somente os com * (essenciais), vai ser mais efetivo cobrir todo o conteúdo
 
