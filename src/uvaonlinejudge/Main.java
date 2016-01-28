@@ -15,12 +15,12 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         Locale.setDefault(Locale.US);
-//        BufferedReader entrada = new BufferedReader(new InputStreamReader(System.in));
-        BufferedReader entrada = new BufferedReader(new InputStreamReader(new FileInputStream("C:\\Users\\felipe.santos\\Documents\\entradas.txt")));
+        BufferedReader entrada = new BufferedReader(new InputStreamReader(System.in));
+//        BufferedReader entrada = new BufferedReader(new InputStreamReader(new FileInputStream("C:\\Users\\felipe.santos\\Documents\\entradas.txt")));
 //        Scanner entrada = new Scanner(new FileInputStream("/home/felipe/entradas.txt"));
 //        Scanner entrada = new Scanner(System.in);
-//        BufferedWriter saida = new BufferedWriter(new OutputStreamWriter(System.out));
-        BufferedWriter saida = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("C:\\Users\\felipe.santos\\Documents\\saidas.txt")));
+        BufferedWriter saida = new BufferedWriter(new OutputStreamWriter(System.out));
+//        BufferedWriter saida = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("C:\\Users\\felipe.santos\\Documents\\saidas.txt")));
         String source = entrada.readLine();
         if (source.isEmpty()) {
             source = entrada.readLine();
@@ -64,8 +64,7 @@ public class Main {
     public static void backtrack(BufferedWriter saida, String source,
             String target, String pilha,
             String atual, String io, int pops, int pushs) throws IOException {
-        System.out.println(source + " " + pilha + " " + atual + " " + io);
-        if (atual.contains(target)) {
+        if (atual.equals(target)) {
             saida.write(io + "\n");
         } else {
             //i
@@ -73,7 +72,7 @@ public class Main {
                 String pLetraSource = source.substring(0, 1);
                 String restoSource = source.substring(1, source.length());
 
-                pilha = pilha.concat(pLetraSource);
+                String novaPilha = pilha.concat(pLetraSource);
 
                 String novoIo = "";
                 if (!io.isEmpty()) {
@@ -81,7 +80,7 @@ public class Main {
                 }
                 novoIo = novoIo.concat("i");
 
-                backtrack(saida, restoSource, target, pilha, atual, novoIo, pops, pushs + 1);
+                backtrack(saida, restoSource, target, novaPilha, atual, novoIo, pops, pushs + 1);
             }
             //o
             if (pops < pushs) {
