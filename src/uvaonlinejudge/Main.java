@@ -10,7 +10,6 @@ import java.io.OutputStreamWriter;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
-import java.util.Stack;
 
 public class Main {
 
@@ -34,9 +33,9 @@ public class Main {
             saida.write("[\n");
             Map<Character, Integer> mapa1 = countLetras(source);
             Map<Character, Integer> mapa2 = countLetras(target);
-            if (mapa1.equals(mapa2)){
-                backtrack(saida, source, target, new Stack<>(), "", "");
-            } 
+            if (mapa1.equals(mapa2)) {
+                backtrack(saida, source, target, "", "", "", 0, 0);
+            }
             saida.write("]\n");
             source = entrada.readLine();
             if (source != null && source.isEmpty()) {
@@ -61,13 +60,44 @@ public class Main {
         }
         return mapa1;
     }
-    
-    public static void backtrack(BufferedWriter saida, String source, 
-            String target, Stack<Character> pilha, 
-            String atual, String io) throws IOException{
-        if (atual.equals(target))
+
+    public static void backtrack(BufferedWriter saida, String source,
+            String target, String pilha,
+            String atual, String io, int pops, int pushs) throws IOException {
+        if (atual.equals(target)) {
             saida.write(io + "\n");
-        
+        } else {
+            //i
+            if (!source.isEmpty()) {
+                String pLetraSource = source.substring(0, 1);
+                String restoSource = source.substring(1, source.length());
+
+                pilha = pilha.concat(pLetraSource);
+
+                String novoIo = "";
+                if (!io.isEmpty()) {
+                    novoIo = io.concat(" ");
+                }
+                novoIo = novoIo.concat("i");
+
+                backtrack(saida, restoSource, target, pilha, atual, novoIo, pops, pushs + 1);
+            }
+            //o
+            if (pops < pushs) {
+                String outPilha = pilha.substring(pilha.length() - 1, pilha.length());
+                String novaPilha = pilha.substring(0, pilha.length() - 1);
+
+                String novoAtual = atual.concat(outPilha);
+
+                String novoIo = "";
+                if (!io.isEmpty()) {
+                    novoIo = io.concat(" ");
+                }
+                novoIo = novoIo.concat("o");
+                
+                backtrack(saida, source, target, novaPilha, novoAtual, novoIo, pops + 1, pushs);
+            }
+        }
     }
 
 }

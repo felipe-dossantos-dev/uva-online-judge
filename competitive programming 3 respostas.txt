@@ -201,7 +201,7 @@ DS
 	Stack - 
 		00514 - ok
 		00732 -
- 		01062 - 
+ 		01062 - ok
 
 	Obs: Fazer somente os com * (essenciais), vai ser mais efetivo cobrir todo o conteúdo
 
