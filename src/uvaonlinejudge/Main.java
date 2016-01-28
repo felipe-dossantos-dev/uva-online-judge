@@ -64,7 +64,8 @@ public class Main {
     public static void backtrack(BufferedWriter saida, String source,
             String target, String pilha,
             String atual, String io, int pops, int pushs) throws IOException {
-        if (atual.equals(target)) {
+        System.out.println(source + " " + pilha + " " + atual + " " + io);
+        if (atual.contains(target)) {
             saida.write(io + "\n");
         } else {
             //i
