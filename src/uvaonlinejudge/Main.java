@@ -7,11 +7,18 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Set;
+import java.util.Stack;
 
 public class Main {
+    
+    public static Set<String> conj;
 
     public static void main(String[] args) throws IOException {
         Locale.setDefault(Locale.US);
@@ -33,8 +40,16 @@ public class Main {
             saida.write("[\n");
             Map<Character, Integer> mapa1 = countLetras(source);
             Map<Character, Integer> mapa2 = countLetras(target);
+            conj = new HashSet<>();
             if (mapa1.equals(mapa2)) {
-                backtrack(saida, source, target, "", "", "", 0, 0);
+                List<Character> lSource = new ArrayList<>();
+                for (int i = 0; i < source.length(); i++) {
+                    lSource.add(source.charAt(i));
+                }
+                backtrack(lSource, target, new Stack<Character>(), new ArrayList<Character>(), "", 0, 0);
+            }
+            for (String conj1 : conj) {
+                saida.write(conj1+ "\n");
             }
             saida.write("]\n");
             source = entrada.readLine();
@@ -61,43 +76,47 @@ public class Main {
         return mapa1;
     }
 
-    public static void backtrack(BufferedWriter saida, String source,
-            String target, String pilha,
-            String atual, String io, int pops, int pushs) throws IOException {
-        if (atual.equals(target)) {
-            saida.write(io + "\n");
+    public static void backtrack(List<Character> source,
+            String target, Stack<Character> pilha,
+            List<Character> atual, String io, int pops, int pushs) throws IOException {
+        boolean equal = true;
+        for (int i = 0; i < atual.size(); i++) {
+            if (!atual.get(i).equals(target.charAt(i))){
+                equal = false;
+            }
+        }
+        if (equal && atual.size() == target.length()) {
+            conj.add(io);
         } else {
             //i
             if (!source.isEmpty()) {
-                String pLetraSource = source.substring(0, 1);
-                String restoSource = source.substring(1, source.length());
+                Character pLetraSource = source.remove(0);
 
-                String novaPilha = pilha.concat(pLetraSource);
+                pilha.push(pLetraSource);
 
                 String novoIo = "";
                 if (!io.isEmpty()) {
                     novoIo = io.concat(" ");
                 }
                 novoIo = novoIo.concat("i");
-
-                backtrack(saida, restoSource, target, novaPilha, atual, novoIo, pops, pushs + 1);
+                Stack<Character> novaP = (Stack<Character>) pilha.clone();
+                backtrack(new ArrayList<Character>(source), target, novaP, new ArrayList<Character>(atual), novoIo, pops, ++pushs);
+                io = novoIo;
             }
             //o
             if (pops < pushs) {
-                String outPilha = pilha.substring(pilha.length() - 1, pilha.length());
-                String novaPilha = pilha.substring(0, pilha.length() - 1);
+                Character outPilha = pilha.pop();
 
-                String novoAtual = atual.concat(outPilha);
+                atual.add(outPilha);
 
                 String novoIo = "";
                 if (!io.isEmpty()) {
                     novoIo = io.concat(" ");
                 }
                 novoIo = novoIo.concat("o");
-                
-                backtrack(saida, source, target, novaPilha, novoAtual, novoIo, pops + 1, pushs);
+                Stack<Character> novaP = (Stack<Character>) pilha.clone();
+                backtrack(new ArrayList<Character>(source), target, novaP, new ArrayList<Character>(atual), novoIo, ++pops, pushs);
             }
         }
     }
-
 }
