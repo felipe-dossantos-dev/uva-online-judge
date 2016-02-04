@@ -8,115 +8,78 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
-import java.util.Set;
-import java.util.Stack;
+import java.util.TreeMap;
 
 public class Main {
-    
-    public static Set<String> conj;
 
     public static void main(String[] args) throws IOException {
         Locale.setDefault(Locale.US);
-        BufferedReader entrada = new BufferedReader(new InputStreamReader(System.in));
-//        BufferedReader entrada = new BufferedReader(new InputStreamReader(new FileInputStream("C:\\Users\\felipe.santos\\Documents\\entradas.txt")));
+//        BufferedReader entrada = new BufferedReader(new InputStreamReader(System.in));
+        BufferedReader entrada = new BufferedReader(new InputStreamReader(new FileInputStream("C:\\Users\\felipe.santos\\Documents\\entradas.txt")));
 //        Scanner entrada = new Scanner(new FileInputStream("/home/felipe/entradas.txt"));
 //        Scanner entrada = new Scanner(System.in);
-        BufferedWriter saida = new BufferedWriter(new OutputStreamWriter(System.out));
-//        BufferedWriter saida = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("C:\\Users\\felipe.santos\\Documents\\saidas.txt")));
-        String source = entrada.readLine();
-        if (source.isEmpty()) {
-            source = entrada.readLine();
-        }
-        String target = entrada.readLine();
-        if (target.isEmpty()) {
-            source = entrada.readLine();
-        }
-        while (source != null && target != null) {
-            saida.write("[\n");
-            Map<Character, Integer> mapa1 = countLetras(source);
-            Map<Character, Integer> mapa2 = countLetras(target);
-            conj = new HashSet<>();
-            if (mapa1.equals(mapa2)) {
-                List<Character> lSource = new ArrayList<>();
-                for (int i = 0; i < source.length(); i++) {
-                    lSource.add(source.charAt(i));
+//        BufferedWriter saida = new BufferedWriter(new OutputStreamWriter(System.out));
+        BufferedWriter saida = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("C:\\Users\\felipe.santos\\Documents\\saidas.txt")));
+        TreeMap<String, Integer> mapa;
+        String linha = entrada.readLine();
+        int qtdLinhas = Integer.parseInt(linha);
+        while (qtdLinhas != 0) {
+            mapa = new TreeMap<>();
+            List<String> entradas = new ArrayList<>(qtdLinhas);
+            for (int i = 0; i < qtdLinhas; i++) {
+                linha = entrada.readLine();
+                entradas.add(linha);
+                String vet[] = linha.split("\\s+");
+                for (int j = 0; j < vet.length; j++) {
+                    String str = vet[j];
+                    if (mapa.containsKey(str)) {
+                        mapa.put(str, mapa.get(str) + 1);
+                    } else {
+                        mapa.put(str, 1);
+                    }
                 }
-                backtrack(lSource, target, new Stack<Character>(), new ArrayList<Character>(), "", 0, 0);
             }
-            for (String conj1 : conj) {
-                saida.write(conj1+ "\n");
+            //pegar os 5 maiores            
+            List<String> listaTop = new ArrayList<>();
+            List<Map.Entry<String, Integer>> listaT = new ArrayList<>(mapa.entrySet());
+            Collections.sort(listaT, new Comparator<Map.Entry<String, Integer>>(){
+                @Override
+                public int compare(Map.Entry<String, Integer> o1, Map.Entry<String, Integer> o2) {
+                    return -o1.getValue().compareTo(o2.getValue());
+                }
+            });
+            
+            //aqui que ta
+            int cont = 0;
+            int ant = listaT.get(0).getValue();
+            for (Map.Entry<String, Integer> key : listaT) {
+                if (ant != key.getValue() && cont >= 5) break;
+                listaTop.add(key.getKey());
+                cont++;
+                ant = key.getValue();
             }
-            saida.write("]\n");
-            source = entrada.readLine();
-            if (source != null && source.isEmpty()) {
-                source = entrada.readLine();
+            
+            int total = 0;
+            for (String ent : entradas) {
+                cont = 0;
+                for (String top : listaTop) {
+                    if (ent.contains(top)) {
+                        cont++;
+                    }
+                }
+                if (cont == 5) {
+                    total++;
+                }
             }
-            target = entrada.readLine();
-            if (target != null && target.isEmpty()) {
-                source = entrada.readLine();
-            }
+            saida.write(total + "\n");
+            linha = entrada.readLine();
+            qtdLinhas = Integer.parseInt(linha);
         }
         saida.flush();
-    }
-
-    public static Map<Character, Integer> countLetras(String str) {
-        Map<Character, Integer> mapa1 = new HashMap<>();
-        for (char c : str.toCharArray()) {
-            if (mapa1.containsKey(c)) {
-                mapa1.put(c, mapa1.get(c) + 1);
-            } else {
-                mapa1.put(c, 1);
-            }
-        }
-        return mapa1;
-    }
-
-    public static void backtrack(List<Character> source,
-            String target, Stack<Character> pilha,
-            List<Character> atual, String io, int pops, int pushs) throws IOException {
-        boolean equal = true;
-        for (int i = 0; i < atual.size(); i++) {
-            if (!atual.get(i).equals(target.charAt(i))){
-                equal = false;
-            }
-        }
-        if (equal && atual.size() == target.length()) {
-            conj.add(io);
-        } else {
-            //i
-            if (!source.isEmpty()) {
-                Character pLetraSource = source.remove(0);
-
-                pilha.push(pLetraSource);
-
-                String novoIo = "";
-                if (!io.isEmpty()) {
-                    novoIo = io.concat(" ");
-                }
-                novoIo = novoIo.concat("i");
-                Stack<Character> novaP = (Stack<Character>) pilha.clone();
-                backtrack(new ArrayList<Character>(source), target, novaP, new ArrayList<Character>(atual), novoIo, pops, ++pushs);
-                io = novoIo;
-            }
-            //o
-            if (pops < pushs) {
-                Character outPilha = pilha.pop();
-
-                atual.add(outPilha);
-
-                String novoIo = "";
-                if (!io.isEmpty()) {
-                    novoIo = io.concat(" ");
-                }
-                novoIo = novoIo.concat("o");
-                Stack<Character> novaP = (Stack<Character>) pilha.clone();
-                backtrack(new ArrayList<Character>(source), target, novaP, new ArrayList<Character>(atual), novoIo, ++pops, pushs);
-            }
-        }
     }
 }

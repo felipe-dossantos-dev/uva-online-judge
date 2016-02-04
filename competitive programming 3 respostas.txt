@@ -200,8 +200,47 @@ DS
 		11988 - ok
 	Stack - 
 		00514 - ok
-		00732 -
+		00732 - TLE
  		01062 - ok
+ 	Queue and Deque -
+ 		to com preguiça de fazer
+
+Seção 2.3
+
+2.3.1 - Depende do tamanho dos inputs, e qual o tipo de chave, se for uma chave de string, teria que comparar
+	strings uma a uma, o que geraria perca de performance e se tiver que achar uma chave teria que fazeruma busca linear
+ 	na chave para saber qual certa.
+
+2.3.2 - 
+ 	1. search(7) - 15 - 6 - 7
+ 	   search(71) - 15 - 23 - 71
+	   search(22) - 15 - 23 - not found
+
+2.3.3 -
+	1. percorre a arvore in-ordem conferindo se o filho da direita é maior que o pai e o da esquerda é menor que o pai
+	e chama recursivamente, se encontra algo que não corresponde a restrição, para o loop
+	2. percorre em in ordem até chegar ao nó a , ou o maior elemento na arvore depois de a, depois disso sai printando tudo, 
+	até achar um elemento b, ou maior que b
+	3. atravessa em pós ordem, verifica se é nó, e imprimi
+
+2.3.4 - Não consegui responder, não entendi o que o sucessor faz.
+2.3.5 - Farei depois **
+2.3.6 - 
+	1. Insert(26) : procura pelo valor mais próximoo de 26, no caso 25, pega o indice i dele, faz 2 * i + 1 
+	e insere 26 nessa posição.
+	2. ExtractMax() : retorna a posição 0 do vetor.
+
+2.3.7 - se você usar somente valores positivos e ao inserir transformar em valores negativos em um MaxHeap, eles estarão ordenados de forma descendente
+
+... não fiz o resto ...
+
+Non-Linear DS
+	TreeMap
+		10226 - ok
+
+
+
 
 	Obs: Fazer somente os com * (essenciais), vai ser mais efetivo cobrir todo o conteúdo
+	Obs 2: Vou deixar a seção 2.4 para depois.
 
