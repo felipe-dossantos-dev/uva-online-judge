@@ -240,11 +240,15 @@ Non-Linear DS
 		11286 - ok
 		11572 - ok
 	Set
-		00978 - 
+		00978 - ok
 
 
 
 
 	Obs: Fazer somente os com * (essenciais), vai ser mais efetivo cobrir todo o conteúdo
 	Obs 2: Vou deixar a seção 2.4 para depois.
-
+	Obs 3: Skils a melhorar:
+			1. Interpretação de texto
+			2. Teste de Mesa
+			3. Analise de Algoritmos
+			4. Digitação
