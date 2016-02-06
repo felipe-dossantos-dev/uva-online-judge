@@ -238,7 +238,9 @@ Non-Linear DS
 	TreeMap
 		10226 - ok
 		11286 - ok
-		11572 - 
+		11572 - ok
+	Set
+		00978 - 
 
 
 

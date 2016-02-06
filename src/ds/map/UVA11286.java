@@ -40,7 +40,6 @@ public class UVA11286 {
                     mapa.put(linha, 1);
                 }
             }
-            //pegar os obrigatorios e os opcionais
             List<Map.Entry<String, Integer>> listaT = new ArrayList<>(mapa.entrySet());
             Collections.sort(listaT, new Comparator<Map.Entry<String, Integer>>() {
                 @Override
