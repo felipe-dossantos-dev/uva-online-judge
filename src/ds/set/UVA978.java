@@ -104,7 +104,8 @@ public class UVA978 {
                     }
                 }
             }
-            saida.write("\n");
+            if (i + 1 != testes)
+                saida.write("\n");
         }
         saida.flush();
     }
