@@ -241,7 +241,11 @@ Non-Linear DS
 		11572 - ok
 	Set
 		00978 - ok
-
+		11136 - ok
+		11849 - ok
+	PriorityQueue
+		01203 - ok
+		10954 - 
 
 
 
