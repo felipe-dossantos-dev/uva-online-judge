@@ -245,7 +245,10 @@ Non-Linear DS
 		11849 - ok
 	PriorityQueue
 		01203 - ok
-		10954 - 
+		10954 - ok
+		11995 - ok
+
+
 
 
 
