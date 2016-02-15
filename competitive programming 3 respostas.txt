@@ -248,13 +248,20 @@ Non-Linear DS
 		10954 - ok
 		11995 - ok
 
+Seção 3
 
+3.2 - Complete Search
+	Iterative (Theory)
+		00725 - ok
+		00441 - ok
+		11565 - ok
+		11742 - 
 
 
 
 	Obs: Fazer somente os com * (essenciais), vai ser mais efetivo cobrir todo o conteúdo
 	Obs 2: Vou deixar a seção 2.4 para depois.
-	Obs 3: Skils a melhorar:
+	Obs 3: Skils a melhorar (Por prioridade):
 			1. Interpretação de texto
 			2. Teste de Mesa
 			3. Analise de Algoritmos
