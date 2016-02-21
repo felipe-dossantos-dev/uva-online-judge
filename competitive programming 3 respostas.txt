@@ -256,7 +256,9 @@ Seção 3
 		00441 - ok
 		11565 - ok
 	Iterative (One Loop, Linear Scan)
-		00927 - 
+		00927 - ok
+		01237 - ok
+		10976 - 		
 
 
 
