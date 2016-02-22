@@ -258,7 +258,14 @@ Seção 3
 	Iterative (One Loop, Linear Scan)
 		00927 - ok
 		01237 - ok
-		10976 - ok		
+		10976 - ok
+	Iterative (Two Nested Loops)
+		01260 - ok
+		10487 - ok
+		11242 - ok
+	Iterative (Three Or More Nested Loops, Easier)
+		00441 - ok
+		00735 - 
 
 
 
