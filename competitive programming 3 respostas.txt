@@ -265,7 +265,8 @@ Seção 3
 		11242 - ok
 	Iterative (Three Or More Nested Loops, Easier)
 		00441 - ok
-		00735 - 
+		00735 - ok
+		10102 - ok ** Manhattan distance
 
 
 
@@ -276,3 +277,5 @@ Seção 3
 			2. Teste de Mesa
 			3. Analise de Algoritmos
 			4. Digitação
+			5. Comunicação com os parceiros (Trabalho em equipe)
+	Obs 4: Começar a fazer uma colinha com coisas de matemática e com algoritmos
