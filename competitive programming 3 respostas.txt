@@ -267,6 +267,8 @@ Seção 3
 		00441 - ok
 		00735 - ok
 		10102 - ok ** Manhattan distance
+	Iterative (Three-or-More Nested Loops, Harder)
+		10660 - 
 
 
 
