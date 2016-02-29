@@ -7,37 +7,34 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.util.Arrays;
 import java.util.Locale;
 
 public class Main {
 
+    public static int MATRIX_MAX = 25;
+
     public static void main(String[] args) throws IOException {
         Locale.setDefault(Locale.US);
 //        BufferedReader entrada = new BufferedReader(new InputStreamReader(System.in));
-        BufferedReader entrada = new BufferedReader(new InputStreamReader(new FileInputStream("/home/felipe/entradas.txt")));
+//        BufferedReader entrada = new BufferedReader(new InputStreamReader(new FileInputStream("/home/felipe/entradas.txt")));
 //        Scanner entrada = new Scanner(new FileInputStream("/home/felipe/entradas.txt"));C:\\Users\\felipe.santos\\Documents\\
 //        Scanner entrada = new Scanner(System.in);
 //        BufferedWriter saida = new BufferedWriter(new OutputStreamWriter(System.out));
         BufferedWriter saida = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("/home/felipe/saidas.txt")));
-        String linha = entrada.readLine();
-        int testes = Integer.parseInt(linha);
-        for (int i = 0; i < testes; i++) {
-            linha = entrada.readLine();
-            int matriz[][] = new int[5][5];
-            int notNulls = Integer.parseInt(linha);
-            for (int j = 0; j < notNulls; j++) {
-                linha = entrada.readLine();
-                String vet[] = linha.split("\\s+");
-                int row = Integer.parseInt(vet[0]);
-                int col = Integer.parseInt(vet[1]);
-                int value = Integer.parseInt(vet[2]);
-                matriz[row][col] = value;
+//        String linha = entrada.readLine();
+        for (int i = 1; i <= 1997; i++) {
+            for (int j = i; j <= 1997 - i; j++) {
+                for (int k = j; k <= 1997 - i - j; k++) {
+                    int d = 2000 - i - j - k;
+                    double a = (i / 100.0);
+                    double b = (j / 100.0);
+                    double c = (k / 100.0);
+                    double e = d / 100.0;
+                    if (a * b * c * e == 20.0) {
+                        saida.write(String.format("%.2f %.2f %.2f %.2f\n", a, b, c, e));
+                    }
+                }
             }
-            for (int j = 0; j < 5; j++) {
-                System.out.println(Arrays.toString(matriz[j]));
-            }
-            System.out.println("");
         }
         saida.flush();
     }

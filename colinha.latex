@@ -10,8 +10,8 @@
 \section{Matematica}
 	\subsection{Taxicab geometry (Geometria de taxi)}
 
-		\subsubsection{Manhattan distance}
-		\begin{itemize}
+		\subsubsection{Manhattan distance
+}		\begin{itemize}
 			\item Distância entre dois pontos de uma matriz: 
 			\item dist((x1, y1), (x2, y2)) == abs(x1 - x2) + abs(y1 - y2)
 		\end{itemize}
@@ -22,5 +22,7 @@
 			\item Torre e Bispos == Manhattan distance
 			\item Rei e Rainha == Chebyshev distance == max(abs (x1 - x2), abs(x1 - x2))
 		\end{itemize}
+
+
 
 \end{document}
