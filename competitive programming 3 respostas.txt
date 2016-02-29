@@ -269,7 +269,8 @@ Seção 3
 		10102 - ok ** Manhattan distance
 	Iterative (Three-or-More Nested Loops, Harder)
 		10660 - ok
-		11236 - 
+		11236 - ok
+		
 
 		* Fazer uns 7 exs desses.
 
