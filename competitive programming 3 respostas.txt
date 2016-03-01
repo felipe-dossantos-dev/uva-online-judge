@@ -271,10 +271,11 @@ Seção 3
 		10660 - ok
 		11236 - ok
 		11565 - ok
-		
-		
-
-		* Fazer uns 7 exs desses.
+		10125 - ok
+		10360 - ok
+		11108 - copiei da internet, não consegui achar uma solução 
+		11342 - ok
+		11548 - 
 
 
 
