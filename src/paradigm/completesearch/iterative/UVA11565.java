@@ -41,4 +41,38 @@ public class UVA11565 {
         }
         saida.flush();
     }
+
+    public static void outraSolucao(String[] args) throws IOException {
+        Locale.setDefault(Locale.US);
+        BufferedReader entrada = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter saida = new BufferedWriter(new OutputStreamWriter(System.out));
+        String linha = entrada.readLine();
+        int testes = Integer.parseInt(linha);
+        for (int i = 0; i < testes; i++) {
+            linha = entrada.readLine();
+            String vet[] = linha.split("\\s+");
+            int a = Integer.parseInt(vet[0]);
+            int b = Integer.parseInt(vet[1]);
+            int c = Integer.parseInt(vet[2]);
+            boolean flag = true;
+            for (int x = -100; x <= 100 && flag; x++) {
+                int x2 = x * x;
+                for (int y = x + 1; y <= a - x && flag; y++) {
+                    int y2 = y * y;
+                    if (y * y <= c - x2) {
+                        for (int z = y + 1; z <= a - x - y && flag; z++) {
+                            if (x2 + y2 + z * z == c && x * y * z == b && x + y + z == a) {
+                                saida.write(String.format("%d %d %d\n", x, y, z));
+                                flag = false;
+                            }
+                        }
+                    }
+                }
+            }
+            if (flag) {
+                saida.write("No solution.\n");
+            }
+        }
+        saida.flush();
+    }
 }
