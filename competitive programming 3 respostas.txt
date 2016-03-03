@@ -275,8 +275,13 @@ Seção 3
 		10360 - ok
 		11108 - copiei da internet, não consegui achar uma solução 
 		11342 - ok
-		11548 - 
-
+		11548 - ok
+	Iterative (Fancy Techniques)
+		01047 - ok
+		11553 - ok
+		12455 - ok
+	Recursive Backtracking (Easy)
+		00624 - 
 
 
 	Obs: Fazer somente os com * (essenciais), vai ser mais efetivo cobrir todo o conteúdo
