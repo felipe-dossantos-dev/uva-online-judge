@@ -281,7 +281,7 @@ Seção 3
 		11553 - ok
 		12455 - ok
 	Recursive Backtracking (Easy)
-		00624 - 
+		00624 - ok
 
 
 	Obs: Fazer somente os com * (essenciais), vai ser mais efetivo cobrir todo o conteúdo
@@ -292,4 +292,4 @@ Seção 3
 			3. Analise de Algoritmos
 			4. Digitação
 			5. Comunicação com os parceiros (Trabalho em equipe)
-	Obs 4: Começar a fazer uma colinha com coisas de matemática e com algoritmos
+	Obs 4: No backtrack vou fazer metade dos exs.
