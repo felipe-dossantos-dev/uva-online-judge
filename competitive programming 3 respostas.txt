@@ -282,7 +282,14 @@ Seção 3
 		12455 - ok
 	Recursive Backtracking (Easy)
 		00624 - ok
-
+		10576 - não consegui entender o problema
+		00380 - 
+		00539 - 
+		00677 - 
+		00729 - 
+		10344 - 
+		10452 -
+		11085 -
 
 	Obs: Fazer somente os com * (essenciais), vai ser mais efetivo cobrir todo o conteúdo
 	Obs 2: Vou deixar a seção 2.4 para depois.
