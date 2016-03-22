@@ -1,4 +1,4 @@
-package uvaonlinejudge;
+package paradigm.completesearch.recursive;
 
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -6,7 +6,7 @@ import java.io.OutputStreamWriter;
 import java.util.Locale;
 import java.util.Scanner;
 
-public class Main {
+public class UVA539 {
 
     public static boolean[][] graph;
     public static boolean[][] visitedEdges;
@@ -14,12 +14,8 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         Locale.setDefault(Locale.US);
-//        BufferedReader entrada = new BufferedReader(new InputStreamReader(System.in));
-//        BufferedReader entrada = new BufferedReader(new InputStreamReader(new FileInputStream("/home/felipe/entradas.txt")));
-//        Scanner entrada = new Scanner(new FileInputStream("/home/felipe/entradas.txt"));//C:\Users\felipe.santos\Documents\
         Scanner entrada = new Scanner(System.in);
         BufferedWriter saida = new BufferedWriter(new OutputStreamWriter(System.out));
-//        BufferedWriter saida = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("/home/felipe/saidas.txt")));
         int nodes = entrada.nextInt();
         int edges = entrada.nextInt();
         while (nodes != 0 && edges != 0) {
