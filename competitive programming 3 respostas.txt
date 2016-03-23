@@ -285,7 +285,7 @@ Seção 3
 		10576 - não consegui entender o problema
 		00380 - ok
 		00539 - ok
-		00677 - 
+		00677 - ok
 		00729 - 
 		10344 - 
 		10452 -
