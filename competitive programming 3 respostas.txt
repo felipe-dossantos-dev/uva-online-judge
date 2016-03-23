@@ -283,7 +283,7 @@ Seção 3
 	Recursive Backtracking (Easy)
 		00624 - ok
 		10576 - não consegui entender o problema
-		00380 - não consegui enviar ainda
+		00380 - ok
 		00539 - ok
 		00677 - 
 		00729 - 
