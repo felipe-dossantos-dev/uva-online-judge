@@ -288,8 +288,18 @@ Seção 3
 		00677 - ok
 		00729 - ok
 		10344 - não consegui resolver
-		10452 -
-		11085 -
+		10452 - ok
+	Recursive Backtracking (Medium)
+		00222 - não consegui resolver
+		00301 - 
+		00487 - 
+		00524* -
+		00574* - 
+		00775 - 
+		10001 - 
+		10503* - 
+		10950 - 
+		11961 - 
 
 	Obs: Fazer somente os com * (essenciais), vai ser mais efetivo cobrir todo o conteúdo
 	Obs 2: Vou deixar a seção 2.4 para depois.

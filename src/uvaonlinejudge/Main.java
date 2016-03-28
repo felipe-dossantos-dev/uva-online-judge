@@ -7,12 +7,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.util.Arrays;
 import java.util.Locale;
 
 public class Main {
-
-    public static boolean flag;
 
     public static void main(String[] args) throws IOException {
         Locale.setDefault(Locale.US);
@@ -22,7 +19,9 @@ public class Main {
 //        Scanner entrada = new Scanner(System.in);
 //        BufferedWriter saida = new BufferedWriter(new OutputStreamWriter(System.out));
         BufferedWriter saida = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("C:\\Users\\felipe.santos\\Documents\\saidas.txt")));
-        
+        String linha = entrada.readLine();
+
         saida.flush();
     }
+
 }
