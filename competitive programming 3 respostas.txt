@@ -292,7 +292,7 @@ Seção 3
 	Recursive Backtracking (Medium)
 		00222 - não consegui resolver
 		00301 - TLE
-		00487 - 
+		00487 - ok
 		00524* -
 		00574* - 
 		00775 - 
