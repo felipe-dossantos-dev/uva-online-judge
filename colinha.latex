@@ -59,5 +59,14 @@
 		        arr[pos1] = arr[pos2];
 		        arr[pos2] = h;
 		    }
+	\subsection{Mod}
+		int res = (a + b) \% n;
+        if (res < 0) {
+            res += n;
+        }
+        // esse abaixo somente se comecar de 1 o indice
+        if (res == 0) {
+            res = n;
+        }
 
 \end{document}

@@ -1,8 +1,6 @@
-package uvaonlinejudge;
+package paradigm.completesearch.recursive;
 
 import java.io.BufferedWriter;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
@@ -11,7 +9,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
 
-public class Main {
+public class UVA524 {
 
     public static boolean vis[] = new boolean[17];
     public static List<List<Integer>> lista = new ArrayList<>();
