@@ -1,8 +1,6 @@
-package uvaonlinejudge;
+package paradigm.completesearch.recursive;
 
 import java.io.BufferedWriter;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
@@ -12,7 +10,7 @@ import java.util.Locale;
 import java.util.Scanner;
 import java.util.Set;
 
-public class Main {
+public class UVA574 {
 
     public static Set<List<Integer>> respostas = new LinkedHashSet<>();
     public static int soma;
