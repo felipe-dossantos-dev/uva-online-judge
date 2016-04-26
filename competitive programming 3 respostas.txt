@@ -295,11 +295,18 @@ Seção 3
 		00487 - ok
 		00524* - ok
 		00574* - ok
-		00775 - 
+		00775 - nok
 		10001 - 
 		10503* - 
 		10950 - 
 		11961 - 
+	Recursive Backtracking (Harder)
+		00193* -
+		00416* - 
+		01262* - 
+		10128 - 
+		10582 - 
+		11090 -
 
 	Obs: Fazer somente os com * (essenciais), vai ser mais efetivo cobrir todo o conteúdo
 	Obs 2: Vou deixar a seção 2.4 para depois.
