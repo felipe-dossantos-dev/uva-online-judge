@@ -299,7 +299,7 @@ Seção 3
 		10503* - ok
 	Recursive Backtracking (Harder)
 		00193* - ok
-		00416* - 
+		00416* - WA
 		01262* - 
 		10128 - 
 		10582 - 

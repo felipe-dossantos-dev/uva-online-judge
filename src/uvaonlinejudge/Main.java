@@ -1,93 +1,94 @@
 package uvaonlinejudge;
 
-import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
 import java.util.Locale;
+import java.util.Scanner;
 
 public class Main {
 
-    public static boolean graph[][];
-    public static boolean color[];
-    public static int nodes, edges;
-    public static List<Integer> vertices;
+    public static final boolean nums[][] = {
+        {true, true, true, true, true, true, false},
+        {false, true, true, false, false, false, false},
+        {true, true, false, true, true, false, true},
+        {true, true, true, true, false, false, true},
+        {false, true, true, false, false, true, true},
+        {true, false, true, true, false, true, true},
+        {true, false, true, true, true, true, true},
+        {true, true, true, false, false, false, false},
+        {true, true, true, true, true, true, true},
+        {true, true, true, true, false, true, true}};
+
+    public static boolean match;
+    public static int n;
+    public static boolean matriz[][];
 
     public static void main(String[] args) throws IOException {
         Locale.setDefault(Locale.US);
-        BufferedReader entrada = new BufferedReader(new InputStreamReader(System.in));
+//        BufferedReader entrada = new BufferedReader(new InputStreamReader(System.in));
 //        BufferedReader entrada = new BufferedReader(new InputStreamReader(new FileInputStream("C:\\Users\\felipe.santos\\Documents\\entradas.txt")));
-//        Scanner entrada = new Scanner(new FileInputStream("C:\\Users\\felipe.santos\\Documents\\entradas.txt"));///home/felipe/
+        Scanner entrada = new Scanner(new FileInputStream("C:\\Users\\felipe.santos\\Documents\\entradas.txt"));///home/felipe/
 //        Scanner entrada = new Scanner(System.in);
-        BufferedWriter saida = new BufferedWriter(new OutputStreamWriter(System.out));
-//        BufferedWriter saida = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("C:\\Users\\felipe.santos\\Documents\\saidas.txt")));
-        int m = Integer.parseInt(entrada.readLine());
-        for (int t = 0; t < m; t++) {
-            String linha = entrada.readLine();
-            String vet[] = linha.split("\\s+");
-            nodes = Integer.parseInt(vet[0]);
-            edges = Integer.parseInt(vet[1]);
-            graph = new boolean[nodes + 1][nodes + 1];
-            color = new boolean[nodes + 1];
-            vertices = new ArrayList<>(nodes);
-            for (int i = 0; i < edges; i++) {
-                linha = entrada.readLine();
-                vet = linha.split("\\s+");
-                int a = Integer.parseInt(vet[0]);
-                int b = Integer.parseInt(vet[1]);
-                graph[a][b] = true;
-                graph[b][a] = true;
+//        BufferedWriter saida = new BufferedWriter(new OutputStreamWriter(System.out));
+        BufferedWriter saida = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("C:\\Users\\felipe.santos\\Documents\\saidas.txt")));
+        while (true) {
+            n = entrada.nextInt();
+            if (n == 0) {
+                break;
             }
-            coloring(1);
-            saida.write(vertices.size() + "\n");
-            for (int i = 0; i < vertices.size(); i++) {
-                Integer vertice = vertices.get(i);
-                saida.write(vertice.toString());
-                if (i != vertices.size() - 1) {
-                    saida.write(" ");
+            matriz = new boolean[n][7];
+            for (int i = 0; i < n; i++) {
+                String linha = entrada.next();
+                for (int j = 0; j < linha.length(); j++) {
+                    char a = linha.charAt(j);
+                    matriz[i][j] = a == 'Y';
                 }
             }
-            saida.write("\n");
+            match = false;
+            backtrack(0, 9, new boolean[7]);
+            if (!match) {
+                saida.write("MIS");
+            }
+            saida.write("MATCH\n");
         }
         saida.flush();
     }
 
-    public static void coloring(int pos) {
-        if (pos <= nodes) {
-            boolean podeSerPreto = true;
-            for (int i = 1; i <= nodes && podeSerPreto; i++) {
-                //visitar quais ainda nao visitei
-                if (graph[pos][i] && color[i]) {
-                   podeSerPreto = false;
-                }
+    public static void backtrack(int pos, int valor, boolean queimados[]) {
+        if (pos < n && valor >= 0) {
+            boolean q[] = confereQueimados(pos, valor);
+            boolean f = formaSequencia(queimados, q);
+            if (f) {
+                backtrack(pos + 1, valor - 1, q);
+            } else {
+                backtrack(pos, valor - 1, queimados);
             }
-            if (podeSerPreto) {
-                color[pos] = true;
-                coloring(pos + 1);
-                color[pos] = false;
-            }
-            coloring(pos + 1);
-        } else {
-            int c = 0;
-            for (boolean d : color) {
-                if (d) {
-                    c++;
-                }
-            }
-            if (c > vertices.size()) {
-                vertices.clear();
-                for (int i = 1; i < color.length; i++) {
-                    boolean d = color[i];
-                    if (d) {
-                        vertices.add(i);
-                    }
-                }
+        } else if (pos >= n){
+            match = true;
+        }
+    }
+
+    public static boolean[] confereQueimados(int pos, int num) {
+        boolean queimados[] = new boolean[7];
+        for (int i = 0; i < 7; i++) {
+            if (nums[num][i] && !matriz[pos][i]) {
+                queimados[i] = true;
             }
         }
+        return queimados;
+    }
+
+    public static boolean formaSequencia(boolean[] ant, boolean[] atu) {
+        boolean flag = true;
+        for (int i = 0; i < 7 && flag; i++) {
+            if (ant[i] && !atu[i]) {
+                flag = false;
+            }
+        }
+        return flag;
     }
 }
