@@ -5,7 +5,6 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
-import java.util.Arrays;
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -54,41 +53,78 @@ public class Main {
                 saida.write("MIS");
             }
             saida.write("MATCH\n");
+            System.out.println("");
         }
         saida.flush();
     }
 
     public static void backtrack(int pos, int valor, boolean queimados[]) {
         if (pos < n && valor >= 0) {
-            boolean q[] = confereQueimados(pos, valor);
-            boolean f = formaSequencia(queimados, q);
-            if (f) {
-                backtrack(pos + 1, valor - 1, q);
-            } else {
+            if (pos == 0) {
+                boolean forma = podeFormar(pos, valor);
+                if (forma) {
+                    boolean[] quei = confereQueimados(pos, valor);
+                    backtrack(pos + 1, valor - 1, quei);
+                }
                 backtrack(pos, valor - 1, queimados);
+            } else {
+                boolean forma = podeFormarQueimado(pos, valor, queimados);
+                if (forma) {
+                    boolean[] quei = confereNovoQueimados(pos, valor, queimados);
+                    if (evoluiQueimadoAnterior(queimados, quei)) {
+                        backtrack(pos + 1, valor - 1, quei);
+                    }
+                }
             }
-        } else if (pos >= n){
+        } else if (pos >= n) {
             match = true;
         }
     }
 
-    public static boolean[] confereQueimados(int pos, int num) {
+    public static boolean[] confereQueimados(int pos, int valor) {
         boolean queimados[] = new boolean[7];
         for (int i = 0; i < 7; i++) {
-            if (nums[num][i] && !matriz[pos][i]) {
+            if (nums[valor][i] && !matriz[pos][i]) {
                 queimados[i] = true;
             }
         }
         return queimados;
     }
 
-    public static boolean formaSequencia(boolean[] ant, boolean[] atu) {
+    public static boolean podeFormar(int pos, int valor) {
         boolean flag = true;
         for (int i = 0; i < 7 && flag; i++) {
-            if (ant[i] && !atu[i]) {
+            if (!nums[valor][i] && matriz[pos][i]) {
                 flag = false;
             }
         }
         return flag;
+    }
+
+    public static boolean evoluiQueimadoAnterior(boolean[] anterior, boolean atual[]) {
+        boolean flag = true;
+        for (int i = 0; i < 7 && flag; i++) {
+            if (anterior[i] && !atual[i]) {
+                flag = false;
+            }
+        }
+        return flag;
+    }
+
+    private static boolean podeFormarQueimado(int pos, int valor, boolean[] queimados) {
+        boolean flag = true;
+        for (int i = 0; i < 7 && flag; i++) {
+            if (queimados[i] && matriz[pos][i]) {
+                flag = false;
+            }
+            if (!nums[valor][i] && matriz[pos][i] && queimados[i]) {
+                flag = false;
+            }
+        }
+        return flag;
+    }
+
+    private static boolean[] confereNovoQueimados(int pos, int valor, boolean[] queimados) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
