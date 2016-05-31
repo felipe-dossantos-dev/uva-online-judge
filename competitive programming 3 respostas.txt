@@ -299,8 +299,11 @@ Seção 3
 		10503* - ok
 	Recursive Backtracking (Harder)
 		00193* - ok
-		00416* - não consegui resolver
-		01262* - 
+		00416* - ok
+		01262* - tle
+		10128 - 
+		10582 - 
+		11090 -
 
 	Obs: Fazer somente os com * (essenciais), vai ser mais efetivo cobrir todo o conteúdo
 	Obs 2: Vou deixar a seção 2.4 para depois.

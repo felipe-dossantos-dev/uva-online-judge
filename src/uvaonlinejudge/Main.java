@@ -1,130 +1,107 @@
 package uvaonlinejudge;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Locale;
-import java.util.Scanner;
+import java.util.Set;
 
 public class Main {
 
-    public static final boolean nums[][] = {
-        {true, true, true, true, true, true, false},
-        {false, true, true, false, false, false, false},
-        {true, true, false, true, true, false, true},
-        {true, true, true, true, false, false, true},
-        {false, true, true, false, false, true, true},
-        {true, false, true, true, false, true, true},
-        {true, false, true, true, true, true, true},
-        {true, true, true, false, false, false, false},
-        {true, true, true, true, true, true, true},
-        {true, true, true, true, false, true, true}};
-
-    public static boolean match;
+    public static char[][] lida;
+    public static char[][] primeira;
+    public static char[][] segunda;
     public static int n;
-    public static boolean matriz[][];
+    public static int d;
+    public static boolean flag;
+    public static Set<List<Character>> conj;
+    public static List<Character> resp;
 
     public static void main(String[] args) throws IOException {
         Locale.setDefault(Locale.US);
-//        BufferedReader entrada = new BufferedReader(new InputStreamReader(System.in));
+        BufferedReader entrada = new BufferedReader(new InputStreamReader(System.in));
 //        BufferedReader entrada = new BufferedReader(new InputStreamReader(new FileInputStream("C:\\Users\\felipe.santos\\Documents\\entradas.txt")));
-        Scanner entrada = new Scanner(new FileInputStream("C:\\Users\\felipe.santos\\Documents\\entradas.txt"));///home/felipe/
+//        Scanner entrada = new Scanner(new FileInputStream("C:\\Users\\felipe.santos\\Documents\\entradas.txt"));///home/felipe/
 //        Scanner entrada = new Scanner(System.in);
-//        BufferedWriter saida = new BufferedWriter(new OutputStreamWriter(System.out));
-        BufferedWriter saida = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("C:\\Users\\felipe.santos\\Documents\\saidas.txt")));
-        while (true) {
-            n = entrada.nextInt();
-            if (n == 0) {
-                break;
-            }
-            matriz = new boolean[n][7];
-            for (int i = 0; i < n; i++) {
-                String linha = entrada.next();
-                for (int j = 0; j < linha.length(); j++) {
-                    char a = linha.charAt(j);
-                    matriz[i][j] = a == 'Y';
+        BufferedWriter saida = new BufferedWriter(new OutputStreamWriter(System.out));
+//        BufferedWriter saida = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("C:\\Users\\felipe.santos\\Documents\\saidas.txt")));
+        String linha = entrada.readLine();
+        int testes = Integer.parseInt(linha);
+        for (int k = 0; k < testes; k++) {
+            linha = entrada.readLine();
+            n = Integer.parseInt(linha);
+
+            conj = new HashSet<>();
+            lida = new char[6][5];
+            primeira = new char[5][6];
+            segunda = new char[5][6];
+            leitura(entrada, primeira);
+            leitura(entrada, segunda);
+
+            flag = false;
+            d = 0;
+            backtrack(0, new ArrayList<Character>());
+            if (flag) {
+                StringBuilder sb = new StringBuilder();
+                for (Character resp1 : resp) {
+                    sb.append(resp1);
                 }
+                saida.write(sb.toString());
+            } else {
+                saida.write("NO");
             }
-            match = false;
-            backtrack(0, 9, new boolean[7]);
-            if (!match) {
-                saida.write("MIS");
-            }
-            saida.write("MATCH\n");
-            System.out.println("");
+            saida.write("\n");
         }
         saida.flush();
     }
 
-    public static void backtrack(int pos, int valor, boolean queimados[]) {
-        if (pos < n && valor >= 0) {
-            if (pos == 0) {
-                boolean forma = podeFormar(pos, valor);
-                if (forma) {
-                    boolean[] quei = confereQueimados(pos, valor);
-                    backtrack(pos + 1, valor - 1, quei);
-                }
-                backtrack(pos, valor - 1, queimados);
-            } else {
-                boolean forma = podeFormarQueimado(pos, valor, queimados);
-                if (forma) {
-                    boolean[] quei = confereNovoQueimados(pos, valor, queimados);
-                    if (evoluiQueimadoAnterior(queimados, quei)) {
-                        backtrack(pos + 1, valor - 1, quei);
+    public static void leitura(BufferedReader entrada, char[][] vet) throws IOException {
+        String linha;
+        for (int i = 0; i < 6; i++) {
+            linha = entrada.readLine();
+            lida[i] = linha.trim().toCharArray();
+        }
+        for (int i = 0; i < 6; i++) {
+            for (int j = 0; j < 5; j++) {
+                vet[j][i] = lida[i][j];
+            }
+        }
+        for (int i = 0; i < 5; i++) {
+            Arrays.sort(vet[i]);
+        }
+    }
+
+    public static void backtrack(int l, List<Character> caminho) {
+//        System.out.println("l: " + l + " c1: " + c1 + " c2: " + c2 + " cam: " + caminho);
+        if (!flag && d != n && l < 5) {
+            for (int i = 0; i < 6 && !flag; i++) {
+                for (int j = 0; j < 6 && !flag; j++) {
+                    if (primeira[l][i] == segunda[l][j]) {
+                        List<Character> novo = new ArrayList(caminho);
+                        novo.add(primeira[l][i]);
+                        if (l == 4) {
+                            if (!conj.contains(novo)) {
+                                d++;
+                                conj.add(novo);
+                                if (d == n) {
+                                    resp = novo;
+                                    flag = true;
+                                }
+                            }
+                        } else {
+                            backtrack(l + 1, novo);
+                        }
                     }
                 }
             }
-        } else if (pos >= n) {
-            match = true;
         }
-    }
-
-    public static boolean[] confereQueimados(int pos, int valor) {
-        boolean queimados[] = new boolean[7];
-        for (int i = 0; i < 7; i++) {
-            if (nums[valor][i] && !matriz[pos][i]) {
-                queimados[i] = true;
-            }
-        }
-        return queimados;
-    }
-
-    public static boolean podeFormar(int pos, int valor) {
-        boolean flag = true;
-        for (int i = 0; i < 7 && flag; i++) {
-            if (!nums[valor][i] && matriz[pos][i]) {
-                flag = false;
-            }
-        }
-        return flag;
-    }
-
-    public static boolean evoluiQueimadoAnterior(boolean[] anterior, boolean atual[]) {
-        boolean flag = true;
-        for (int i = 0; i < 7 && flag; i++) {
-            if (anterior[i] && !atual[i]) {
-                flag = false;
-            }
-        }
-        return flag;
-    }
-
-    private static boolean podeFormarQueimado(int pos, int valor, boolean[] queimados) {
-        boolean flag = true;
-        for (int i = 0; i < 7 && flag; i++) {
-            if (queimados[i] && matriz[pos][i]) {
-                flag = false;
-            }
-            if (!nums[valor][i] && matriz[pos][i] && queimados[i]) {
-                flag = false;
-            }
-        }
-        return flag;
-    }
-
-    private static boolean[] confereNovoQueimados(int pos, int valor, boolean[] queimados) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
