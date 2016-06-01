@@ -300,7 +300,7 @@ Seção 3
 	Recursive Backtracking (Harder)
 		00193* - ok
 		00416* - ok
-		01262* - tle
+		01262* - ok
 		10128 - 
 		10582 - 
 		11090 -
