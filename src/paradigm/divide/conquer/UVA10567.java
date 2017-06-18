@@ -1,4 +1,4 @@
-package uvaonlinejudge;
+package paradigm.divide.conquer;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -10,7 +10,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
 
-public class Main {
+public class UVA10567 {
 
     public static void main(String[] args) throws IOException {
         Locale.setDefault(Locale.US);
